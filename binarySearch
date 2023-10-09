@@ -1,0 +1,25 @@
+FUNCTION binarySearch(array, value)
+    start <- 0
+    end <- length(array) - 1
+    mid <- end // 2
+
+    WHILE array[mid] ≠ value and mid ≠ start or mid ≠ end DO
+        IF array[mid] < value THEN
+            start <- mid
+            IF mid = start THEN
+                mid <- end
+            ELSE
+                mid <- (start + end) // 2
+            ENDIF 
+        ELSE
+            end <- mid
+            mid <- (start + end) // 2
+        ENDIF 
+    ENDWHILE
+
+    IF array[mid] = value THEN
+        return mid
+    ELSE
+        return -1
+    ENDIF
+ENDFUNCTION
